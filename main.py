@@ -2,13 +2,120 @@ from PyQt5 import QtWidgets, uic
 from PyQt5.QtWidgets import QApplication, QTableWidgetItem
 import sys
 import sqlite3
+from PyQt5 import QtCore, QtGui, QtWidgets
 
-class Add(QtWidgets.QMainWindow):
+
+class Second(object):
+    def setupUi(self, Form):
+        Form.setObjectName("Form")
+        Form.resize(842, 300)
+        self.verticalLayoutWidget = QtWidgets.QWidget(Form)
+        self.verticalLayoutWidget.setGeometry(QtCore.QRect(20, 40, 701, 171))
+        self.verticalLayoutWidget.setObjectName("verticalLayoutWidget")
+        self.verticalLayout = QtWidgets.QVBoxLayout(self.verticalLayoutWidget)
+        self.verticalLayout.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout.setObjectName("verticalLayout")
+        self.horizontalLayout_2 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_2.setObjectName("horizontalLayout_2")
+        self.label = QtWidgets.QLabel(self.verticalLayoutWidget)
+        self.label.setObjectName("label")
+        self.horizontalLayout_2.addWidget(self.label)
+        self.label_2 = QtWidgets.QLabel(self.verticalLayoutWidget)
+        self.label_2.setObjectName("label_2")
+        self.horizontalLayout_2.addWidget(self.label_2)
+        self.label_3 = QtWidgets.QLabel(self.verticalLayoutWidget)
+        self.label_3.setObjectName("label_3")
+        self.horizontalLayout_2.addWidget(self.label_3)
+        self.label_4 = QtWidgets.QLabel(self.verticalLayoutWidget)
+        self.label_4.setObjectName("label_4")
+        self.horizontalLayout_2.addWidget(self.label_4)
+        self.label_5 = QtWidgets.QLabel(self.verticalLayoutWidget)
+        self.label_5.setObjectName("label_5")
+        self.horizontalLayout_2.addWidget(self.label_5)
+        self.label_6 = QtWidgets.QLabel(self.verticalLayoutWidget)
+        self.label_6.setObjectName("label_6")
+        self.horizontalLayout_2.addWidget(self.label_6)
+        self.label_7 = QtWidgets.QLabel(self.verticalLayoutWidget)
+        self.label_7.setObjectName("label_7")
+        self.horizontalLayout_2.addWidget(self.label_7)
+        self.verticalLayout.addLayout(self.horizontalLayout_2)
+        self.horizontalLayout = QtWidgets.QHBoxLayout()
+        self.horizontalLayout.setObjectName("horizontalLayout")
+        self.lineEdit = QtWidgets.QLineEdit(self.verticalLayoutWidget)
+        self.lineEdit.setObjectName("lineEdit")
+        self.horizontalLayout.addWidget(self.lineEdit)
+        self.lineEdit_2 = QtWidgets.QLineEdit(self.verticalLayoutWidget)
+        self.lineEdit_2.setObjectName("lineEdit_2")
+        self.horizontalLayout.addWidget(self.lineEdit_2)
+        self.lineEdit_3 = QtWidgets.QLineEdit(self.verticalLayoutWidget)
+        self.lineEdit_3.setObjectName("lineEdit_3")
+        self.horizontalLayout.addWidget(self.lineEdit_3)
+        self.lineEdit_4 = QtWidgets.QLineEdit(self.verticalLayoutWidget)
+        self.lineEdit_4.setObjectName("lineEdit_4")
+        self.horizontalLayout.addWidget(self.lineEdit_4)
+        self.lineEdit_5 = QtWidgets.QLineEdit(self.verticalLayoutWidget)
+        self.lineEdit_5.setObjectName("lineEdit_5")
+        self.horizontalLayout.addWidget(self.lineEdit_5)
+        self.lineEdit_6 = QtWidgets.QLineEdit(self.verticalLayoutWidget)
+        self.lineEdit_6.setObjectName("lineEdit_6")
+        self.horizontalLayout.addWidget(self.lineEdit_6)
+        self.lineEdit_7 = QtWidgets.QLineEdit(self.verticalLayoutWidget)
+        self.lineEdit_7.setObjectName("lineEdit_7")
+        self.horizontalLayout.addWidget(self.lineEdit_7)
+        self.verticalLayout.addLayout(self.horizontalLayout)
+        self.horizontalLayout_3 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_3.setObjectName("horizontalLayout_3")
+        self.label_8 = QtWidgets.QLabel(self.verticalLayoutWidget)
+        self.label_8.setText("")
+        self.label_8.setObjectName("label_8")
+        self.horizontalLayout_3.addWidget(self.label_8)
+        self.pushButton = QtWidgets.QPushButton(self.verticalLayoutWidget)
+        self.pushButton.setObjectName("pushButton")
+        self.horizontalLayout_3.addWidget(self.pushButton)
+        self.verticalLayout.addLayout(self.horizontalLayout_3)
+
+        self.retranslateUi(Form)
+        QtCore.QMetaObject.connectSlotsByName(Form)
+
+    def retranslateUi(self, Form):
+        _translate = QtCore.QCoreApplication.translate
+        Form.setWindowTitle(_translate("Form", "Form"))
+        self.label.setText(_translate("Form", "id"))
+        self.label_2.setText(_translate("Form", "сорт"))
+        self.label_3.setText(_translate("Form", "обжарка"))
+        self.label_4.setText(_translate("Form", "вид"))
+        self.label_5.setText(_translate("Form", "описание вкуса"))
+        self.label_6.setText(_translate("Form", "цена"))
+        self.label_7.setText(_translate("Form", "объем"))
+        self.pushButton.setText(_translate("Form", "Сохранить"))
+
+class Main(object):
+    def setupUi(self, Form):
+        Form.setObjectName("Form")
+        Form.resize(548, 333)
+        self.tableWidget = QtWidgets.QTableWidget(Form)
+        self.tableWidget.setGeometry(QtCore.QRect(20, 10, 471, 281))
+        self.tableWidget.setObjectName("tableWidget")
+        self.tableWidget.setColumnCount(0)
+        self.tableWidget.setRowCount(0)
+        self.pushButton = QtWidgets.QPushButton(Form)
+        self.pushButton.setGeometry(QtCore.QRect(20, 300, 141, 23))
+        self.pushButton.setObjectName("pushButton")
+
+        self.retranslateUi(Form)
+        QtCore.QMetaObject.connectSlotsByName(Form)
+
+    def retranslateUi(self, Form):
+        _translate = QtCore.QCoreApplication.translate
+        Form.setWindowTitle(_translate("Form", "Form"))
+        self.pushButton.setText(_translate("Form", "Добавить кофе"))
+
+class Add(QtWidgets.QMainWindow, Second):
     def __init__(self, window):
         super(Add, self).__init__() 
         self.windoww = window
-        uic.loadUi('addEditCoffeeForm.ui', self)
-        self.connection = sqlite3.connect('coffee.sql')
+        self.setupUi(self)
+        self.connection = sqlite3.connect('data\coffee.sql')
         self.cur = self.connection.cursor()
         self.label_8.setText("")
         self.pushButton.clicked.connect(self.click)
@@ -61,11 +168,11 @@ class Add(QtWidgets.QMainWindow):
                 self.label_8.setText("Ошибка ввода")
         self.windoww.update()
 
-class Ui(QtWidgets.QMainWindow):
+class Ui(QtWidgets.QMainWindow, Main):
     def __init__(self):
         super(Ui, self).__init__() 
-        uic.loadUi('main.ui', self)
-        self.connection = sqlite3.connect('coffee.sql')
+        self.setupUi(self)
+        self.connection = sqlite3.connect('data\coffee.sql')
         self.cur = self.connection.cursor()
         self.resize(1800, 800)
         self.tableWidget.resize(1600, 700)
